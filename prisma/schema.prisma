@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  role      String // REVIEWER | ADMIN
+  createdAt DateTime @default(now())
+
+  assignedKycCases KycCase[] @relation("AssignedReviewer")
+}
+
+model KycCase {
+  id               String   @id @default(cuid())
+  caseNumber       String   @unique
+  customerName     String
+  customerEmail    String
+  country          String
+  riskTier         String // LOW | MEDIUM | HIGH
+  status           String // PENDING | IN_REVIEW | NEEDS_INFORMATION | APPROVED | REJECTED
+  assignedToUserId String?
+  assignedTo       User?    @relation("AssignedReviewer", fields: [assignedToUserId], references: [id])
+  notes            String? // synthetic supporting facts (JSON array of strings)
+  version          Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Refund {
+  id           String   @id @default(cuid())
+  refundNumber String   @unique
+  customerName String
+  amountCents  Int
+  currency     String
+  reason       String
+  status       String // PENDING | APPROVED | REJECTED
+  requestedBy  String
+  version      Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model FeatureFlag {
+  id          String   @id @default(cuid())
+  key         String
+  description String
+  environment String // DEVELOPMENT | STAGING | PRODUCTION
+  enabled     Boolean
+  owner       String
+  version     Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([key, environment])
+}
+
+model AuditEvent {
+  id              String   @id @default(cuid())
+  occurredAt      DateTime @default(now())
+  actorUserId     String
+  actorName       String
+  action          String
+  entityType      String
+  entityId        String
+  entityDisplayId String
+  reason          String?
+  beforeState     String? // JSON-serialized
+  afterState      String? // JSON-serialized
+  metadata        String? // JSON-serialized
+}
