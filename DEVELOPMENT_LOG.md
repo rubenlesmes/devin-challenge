@@ -48,7 +48,7 @@ npm run build      # pass
 npm run check      # pass (all of the above)
 ```
 
-Manual browser validation (scenarios A–E from the specification) was executed against `npm run dev`; results are recorded in the pull-request description and `docs/screenshots/`.
+Manual browser validation (scenarios A–E from the specification, plus a short-note validation-failure check) was executed against `npm run dev` with a fresh `npm run db:reset`; all scenarios passed. Results and screenshots are recorded in the pull request (description and testing comment), with baseline screenshots under `docs/screenshots/`. An annotated screen recording of the walkthrough is attached to the delivery.
 
 ## Problems encountered
 
