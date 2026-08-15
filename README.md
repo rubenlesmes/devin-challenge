@@ -88,8 +88,10 @@ The tests exercise the real service, authorization, validation, transition, and 
 | `tests/feature-flags.test.ts` — unauthorized action | Alex toggling `instant-refunds-v2` through the real service is rejected; flag and audit log unchanged. Morgan succeeds with audit. |
 | `tests/refunds.test.ts` — refund audit | Deciding `RF-2001` records actor, reason, before and after state. |
 | `tests/atomicity.test.ts` — atomicity | A forced audit-write failure rolls back the business mutation. |
+| `tests/concurrency.test.ts` — optimistic locking *(added during the Claude Code finalization session)* | A stale `expectedVersion` is rejected with a typed `CONFLICT` error; no state change, no audit event. |
 
-**Final results:** all checks pass (`npm run check`: lint ✓, typecheck ✓, 10/10 tests ✓, build ✓).
+**Final results at original delivery:** all checks passed (`npm run check`: lint ✓, typecheck ✓, 10/10 tests ✓, build ✓).
+**Current state (after finalization):** 13/13 tests ✓ (10 original boundary tests + 3 optimistic-concurrency tests added during finalization).
 
 ## H. Adding a Fourth Module
 
@@ -124,7 +126,7 @@ This prototype deliberately omits, and a production adoption would still require
 
 ## K. Prototype Scope
 
-**Implemented:** everything in section B; optimistic concurrency (a `version` field with `expectedVersion` support in every service — currently exercised by tests and available to callers, the UI does not yet send `expectedVersion`); the six required automated boundary tests; responsive-at-375px layout; documentation, Skill, and PR template.
+**Implemented:** everything in section B; optimistic concurrency (a `version` field with `expectedVersion` support in every service — available to callers; the UI does not yet send `expectedVersion`; the conflict path had no test coverage at original delivery and is now covered by `tests/concurrency.test.ts`, added during finalization); the six required automated boundary tests; responsive-at-375px layout; documentation, Skill, and PR template.
 
 **Deferred:** automated browser tests (manual browser validation documented instead); UI-level optimistic-locking wiring; pagination (dataset is small and capped).
 
@@ -145,3 +147,23 @@ This prototype is **not** compliant, **not** secure for production, and **not** 
 ## Screenshots
 
 See `docs/screenshots/`: KYC queue, KYC case detail with audit timeline, feature flags, central audit log, and a mobile-width (375px) view.
+
+## L. Final Deliverables (Claude Code finalization session, 2026-08-15)
+
+The evaluation delivery package (executive video pipeline + rendered MP4, Key Decisions
+one-pager, evidence matrix, sources, submission checklist, finalization log) is
+deliberately kept **outside this repository**, in a sibling `deliverables/` directory
+distributed alongside it. This repository intentionally contains no media or evaluation
+artifacts (`/deliverables/` is gitignored as a guard).
+
+- **Run the app:** `npm install && npm run db:reset && npm run dev` (§D). Demo script: §F.
+- **Validate:** `npm run check` (lint + typecheck + tests + build).
+- In the external package: `video/README.md` documents the reproducible capture →
+  narration → captions → render → validation pipeline; `one-pager/` holds the decision
+  brief (Markdown, HTML, one-page PDF); `FINALIZATION_LOG.md` records exactly what was
+  built by Devin versus changed during the finalization session (including the fixes and
+  the three concurrency tests added to this repository).
+
+**Production limitations:** unchanged from §J — this prototype is not production-ready,
+uses synthetic data only, and simulates identity. Nothing in the delivery package alters
+that.
