@@ -126,7 +126,29 @@ Also updated by Claude Code: `README.md` (§G/§K corrections + §L deliverables
 `DEVELOPMENT_LOG.md` (appended correction note — original text preserved), `.gitignore`
 (media outputs), `tsconfig.json` (exclude `deliverables`).
 
-## 5. Attribution statement
+## 5. Red-team review record
+
+Two independent read-only review passes informed the final artifacts:
+
+1. **Audit workstream (completed):** produced the prohibited-claims list that shaped the
+   narration (no build-time claims; no "DB-enforced audit immutability"; no "tested
+   concurrency" until Fix 3; no parallel-execution claims; git history cannot
+   substantiate build speed). All findings resolved — see `evidence-matrix.md` and
+   `deliverables/video/content/claims-register.md`.
+2. **Adversarial checklist (10 questions, §25 of the brief):** a dedicated red-team
+   subagent was launched but did not report back before delivery; the integration
+   session therefore executed the checklist directly against the evidence. Outcomes:
+   strongest reason not to build (ownership + un-built controls consume the ceiling) is
+   given a full video scene and the one-pager risk line; strongest reason to build
+   (reusable audited golden path for engineering-owned workflows) is evidenced by code
+   and tests; no savings presented as certain; no build-time claim anywhere; Power Apps
+   value gets a dedicated first-party-sourced scene; Devin bounded explicitly (not
+   runtime/owner/identity); captions carry no v3 audio tags (verified: 0 bracket
+   sequences in the SRT); attribution between Devin and Claude Code is explicit in
+   README §G/§L, the one-pager footer, and this log; the recommendation ends in three
+   concrete, assignable actions.
+
+## 6. Attribution statement
 
 - The application, its architecture, tests, and repository documentation were built by
   **Devin** (commits of 2026-08-14 on `devin/fintech-operations-console-poc`).
