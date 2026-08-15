@@ -1,0 +1,6 @@
+4b0bbe3 Update development log with executed browser validation results
+fae3707 Keep Next.js auto-generated agent rules block in AGENTS.md
+0748554 Add browser screenshots (desktop and 375px mobile views)
+eac9f57 Add documentation: README, AGENTS.md, development log, add-internal-tool-module Skill, Devin PR template
+6e8aa0f Initialize Fintech Operations Console: Next.js app, Prisma/SQLite schema and seed, central authorization/transition/audit services, KYC/refunds/feature-flags/audit modules, Vitest boundary tests
+0acea2d Initial empty commit

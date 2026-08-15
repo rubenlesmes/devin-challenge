@@ -1,0 +1,14 @@
+{
+  "sceneId": "scene-08-recommendation",
+  "voiceName": "Ellen",
+  "modelId": "eleven_v3",
+  "outputFormat": "mp3_44100_128",
+  "seed": null,
+  "voiceSettings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75
+  },
+  "usesAudioTags": true,
+  "generatedAt": "2026-08-15T00:06:27.852Z",
+  "characters": 615
+}

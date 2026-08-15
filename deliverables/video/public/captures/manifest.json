@@ -1,0 +1,131 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "generatedBy": "scripts/capture-app.mjs",
+  "screenshots": [
+    {
+      "name": "home",
+      "persona": "alex",
+      "url": "/",
+      "file": "captures/home.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    },
+    {
+      "name": "kyc-queue",
+      "persona": "alex",
+      "url": "/kyc",
+      "file": "captures/kyc-queue.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    },
+    {
+      "name": "kyc-case-detail",
+      "persona": "alex",
+      "url": "/kyc/cmstleiq60001pplab80687ya",
+      "file": "captures/kyc-case-detail.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    },
+    {
+      "name": "flags-reviewer-denied",
+      "persona": "alex",
+      "url": "/feature-flags",
+      "file": "captures/flags-reviewer-denied.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    },
+    {
+      "name": "refunds-queue",
+      "persona": "alex",
+      "url": "/refunds",
+      "file": "captures/refunds-queue.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    },
+    {
+      "name": "mobile-kyc-queue",
+      "persona": "alex",
+      "url": "/kyc",
+      "file": "captures/mobile-kyc-queue.png",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scale": 3
+    },
+    {
+      "name": "kyc-audit-timeline",
+      "persona": "alex",
+      "url": "/kyc/cmstleiq60001pplab80687ya",
+      "file": "captures/kyc-audit-timeline.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    },
+    {
+      "name": "flags-admin-after",
+      "persona": "morgan",
+      "url": "/feature-flags",
+      "file": "captures/flags-admin-after.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    },
+    {
+      "name": "audit-log",
+      "persona": "morgan",
+      "url": "/audit",
+      "file": "captures/audit-log.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "scale": 2
+    }
+  ],
+  "recordings": [
+    {
+      "name": "kyc-flow",
+      "persona": "alex",
+      "file": "captures/kyc-flow.mp4",
+      "durationSeconds": 17.07
+    },
+    {
+      "name": "flag-toggle",
+      "persona": "morgan",
+      "file": "captures/flag-toggle.mp4",
+      "durationSeconds": 9.63
+    },
+    {
+      "name": "refund-flow",
+      "persona": "alex",
+      "file": "captures/refund-flow.mp4",
+      "durationSeconds": 11.4
+    },
+    {
+      "name": "persona-switch",
+      "persona": "alex",
+      "file": "captures/persona-switch.mp4",
+      "durationSeconds": 6.53
+    }
+  ]
+}

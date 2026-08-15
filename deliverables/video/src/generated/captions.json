@@ -1,0 +1,458 @@
+[
+  {
+    "sceneId": "scene-01-decision",
+    "text": "You're paying roughly two hundred and fifty thousand dollars a year for an internal-tools platform.",
+    "startFrame": 23,
+    "endFrame": 218,
+    "startSeconds": 0.768,
+    "endSeconds": 7.266666666666667
+  },
+  {
+    "sceneId": "scene-01-decision",
+    "text": "Our recommendation: don't replace it.",
+    "startFrame": 219,
+    "endFrame": 295,
+    "startSeconds": 7.287,
+    "endSeconds": 9.833333333333334
+  },
+  {
+    "sceneId": "scene-01-decision",
+    "text": "Keep Power Apps where it earns its keep, and pilot Devin-assisted custom development",
+    "startFrame": 296,
+    "endFrame": 438,
+    "startSeconds": 9.859,
+    "endSeconds": 14.6
+  },
+  {
+    "sceneId": "scene-01-decision",
+    "text": "on the next engineering-owned tool.",
+    "startFrame": 439,
+    "endFrame": 499,
+    "startSeconds": 14.626999999999999,
+    "endSeconds": 16.647
+  },
+  {
+    "sceneId": "scene-01-decision",
+    "text": "A working prototype makes the case, and shows exactly where the boundaries are.",
+    "startFrame": 515,
+    "endFrame": 645,
+    "startSeconds": 17.177,
+    "endSeconds": 21.526999999999997
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "First, be clear about what that license actually buys.",
+    "startFrame": 698,
+    "endFrame": 807,
+    "startSeconds": 23.263666666666666,
+    "endSeconds": 26.9
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "Screens are the visible part.",
+    "startFrame": 808,
+    "endFrame": 888,
+    "startSeconds": 26.946666666666665,
+    "endSeconds": 29.606666666666666
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "The real value is the platform underneath: Microsoft Entra identity and single sign-on.",
+    "startFrame": 911,
+    "endFrame": 1099,
+    "startSeconds": 30.36466666666667,
+    "endSeconds": 36.654666666666664
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "Dataverse, a managed data layer with row and column level security.",
+    "startFrame": 1101,
+    "endFrame": 1249,
+    "startSeconds": 36.69466666666666,
+    "endSeconds": 41.63333333333333
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "More than a thousand governed connectors.",
+    "startFrame": 1250,
+    "endFrame": 1335,
+    "startSeconds": 41.67466666666667,
+    "endSeconds": 44.5
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "Data loss prevention policies.",
+    "startFrame": 1336,
+    "endFrame": 1395,
+    "startSeconds": 44.53866666666667,
+    "endSeconds": 46.5
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "And managed lifecycle controls, all maintained by Microsoft.",
+    "startFrame": 1396,
+    "endFrame": 1526,
+    "startSeconds": 46.534666666666666,
+    "endSeconds": 50.894666666666666
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "Custom code inherits none of that for free.",
+    "startFrame": 1557,
+    "endFrame": 1645,
+    "startSeconds": 51.90866666666667,
+    "endSeconds": 54.833333333333336
+  },
+  {
+    "sceneId": "scene-02-powerapps",
+    "text": "Any honest build-versus-buy comparison starts there, not with how fast you can render a table.",
+    "startFrame": 1646,
+    "endFrame": 1834,
+    "startSeconds": 54.85966666666667,
+    "endSeconds": 61.13966666666667
+  },
+  {
+    "sceneId": "scene-03-prototype",
+    "text": "To test the build side, Devin built a working operations console.",
+    "startFrame": 1878,
+    "endFrame": 2010,
+    "startSeconds": 62.60566666666667,
+    "endSeconds": 67
+  },
+  {
+    "sceneId": "scene-03-prototype",
+    "text": "One deep KYC review workflow, plus refunds and feature flags as thinner reuse tests.",
+    "startFrame": 2011,
+    "endFrame": 2198,
+    "startSeconds": 67.01666666666667,
+    "endSeconds": 73.28666666666668
+  },
+  {
+    "sceneId": "scene-03-prototype",
+    "text": "Underneath: one server-side permission map, declarative state machines, and an append-only",
+    "startFrame": 2218,
+    "endFrame": 2391,
+    "startSeconds": 73.93666666666667,
+    "endSeconds": 79.7
+  },
+  {
+    "sceneId": "scene-03-prototype",
+    "text": "audit event written in the same database transaction as every business change.",
+    "startFrame": 2392,
+    "endFrame": 2541,
+    "startSeconds": 79.71966666666667,
+    "endSeconds": 84.72666666666667
+  },
+  {
+    "sceneId": "scene-03-prototype",
+    "text": "A record cannot change without an audit trail, by construction.",
+    "startFrame": 2550,
+    "endFrame": 2661,
+    "startSeconds": 85.01566666666668,
+    "endSeconds": 88.72866666666667
+  },
+  {
+    "sceneId": "scene-03-prototype",
+    "text": "All data is synthetic, and identity is deliberately simulated.",
+    "startFrame": 2687,
+    "endFrame": 2794,
+    "startSeconds": 89.55066666666667,
+    "endSeconds": 93.13066666666668
+  },
+  {
+    "sceneId": "scene-03-prototype",
+    "text": "The point is the pattern, not a production system.",
+    "startFrame": 2794,
+    "endFrame": 2892,
+    "startSeconds": 93.13066666666667,
+    "endSeconds": 96.41066666666669
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "Here's the real application.",
+    "startFrame": 2936,
+    "endFrame": 2987,
+    "startSeconds": 97.86133333333333,
+    "endSeconds": 99.59333333333335
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "A reviewer works the KYC queue, opens a case, assigns it to themselves, and approves",
+    "startFrame": 2992,
+    "endFrame": 3179,
+    "startSeconds": 99.73333333333333,
+    "endSeconds": 105.96666666666667
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "it with a mandatory decision note.",
+    "startFrame": 3180,
+    "endFrame": 3242,
+    "startSeconds": 106.00033333333333,
+    "endSeconds": 108.07333333333334
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "The case moves through a controlled state machine, from pending to in review to approved,",
+    "startFrame": 3263,
+    "endFrame": 3453,
+    "startSeconds": 108.75833333333334,
+    "endSeconds": 115.1
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "and once a decision is final, the server refuses any further transition.",
+    "startFrame": 3454,
+    "endFrame": 3592,
+    "startSeconds": 115.13333333333333,
+    "endSeconds": 119.75333333333334
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "Every action lands in the case's audit timeline: who, what, before and after.",
+    "startFrame": 3592,
+    "endFrame": 3794,
+    "startSeconds": 119.74633333333334,
+    "endSeconds": 126.47333333333334
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "Ten automated tests pin these boundaries down, covering permitted actions, denied actions,",
+    "startFrame": 3819,
+    "endFrame": 4006,
+    "startSeconds": 127.28833333333333,
+    "endSeconds": 133.53333333333333
+  },
+  {
+    "sceneId": "scene-04-kyc",
+    "text": "invalid transitions, and audit atomicity, against the real service code.",
+    "startFrame": 4007,
+    "endFrame": 4156,
+    "startSeconds": 133.55333333333334,
+    "endSeconds": 138.55333333333334
+  },
+  {
+    "sceneId": "scene-05-reuse",
+    "text": "The same spine repeats across modules.",
+    "startFrame": 4199,
+    "endFrame": 4288,
+    "startSeconds": 139.96800000000002,
+    "endSeconds": 142.96
+  },
+  {
+    "sceneId": "scene-05-reuse",
+    "text": "Refunds reuse the same queue, dialog, and audit components.",
+    "startFrame": 4289,
+    "endFrame": 4437,
+    "startSeconds": 142.96,
+    "endSeconds": 147.92000000000002
+  },
+  {
+    "sceneId": "scene-05-reuse",
+    "text": "Feature flags show the permission boundary: as a reviewer, the toggle is refused, enforced",
+    "startFrame": 4449,
+    "endFrame": 4612,
+    "startSeconds": 148.287,
+    "endSeconds": 153.73333333333332
+  },
+  {
+    "sceneId": "scene-05-reuse",
+    "text": "on the server, not just hidden in the interface.",
+    "startFrame": 4613,
+    "endFrame": 4701,
+    "startSeconds": 153.767,
+    "endSeconds": 156.72000000000003
+  },
+  {
+    "sceneId": "scene-05-reuse",
+    "text": "Switch to an admin, and enabling a production flag requires a recorded change reason.",
+    "startFrame": 4721,
+    "endFrame": 4869,
+    "startSeconds": 157.351,
+    "endSeconds": 162.3
+  },
+  {
+    "sceneId": "scene-05-reuse",
+    "text": "And every action, across every module, shows up in one central audit log.",
+    "startFrame": 4870,
+    "endFrame": 5037,
+    "startSeconds": 162.34,
+    "endSeconds": 167.92000000000002
+  },
+  {
+    "sceneId": "scene-06-devin",
+    "text": "Devin's role is the economics of the second through the tenth app.",
+    "startFrame": 5084,
+    "endFrame": 5191,
+    "startSeconds": 169.46666666666667,
+    "endSeconds": 173.04666666666668
+  },
+  {
+    "sceneId": "scene-06-devin",
+    "text": "The repository encodes the conventions: a machine-readable rulebook and a module playbook,",
+    "startFrame": 5192,
+    "endFrame": 5385,
+    "startSeconds": 173.0666666666667,
+    "endSeconds": 179.5
+  },
+  {
+    "sceneId": "scene-06-devin",
+    "text": "so the next workflow follows the same golden path.",
+    "startFrame": 5386,
+    "endFrame": 5492,
+    "startSeconds": 179.53366666666668,
+    "endSeconds": 183.0866666666667
+  },
+  {
+    "sceneId": "scene-06-devin",
+    "text": "Schema, service, permissions, transitions, audit, tests, pull request.",
+    "startFrame": 5509,
+    "endFrame": 5699,
+    "startSeconds": 183.6256666666667,
+    "endSeconds": 189.96666666666667
+  },
+  {
+    "sceneId": "scene-06-devin",
+    "text": "Reviewed and merged by your engineers.",
+    "startFrame": 5700,
+    "endFrame": 5782,
+    "startSeconds": 190.00966666666667,
+    "endSeconds": 192.73166666666668
+  },
+  {
+    "sceneId": "scene-06-devin",
+    "text": "Devin is an accelerator inside your delivery process.",
+    "startFrame": 5817,
+    "endFrame": 5906,
+    "startSeconds": 193.90266666666668,
+    "endSeconds": 196.89166666666668
+  },
+  {
+    "sceneId": "scene-06-devin",
+    "text": "It is not the runtime, not the identity provider, and not the accountable owner of what ships.",
+    "startFrame": 5907,
+    "endFrame": 6106,
+    "startSeconds": 196.89866666666668,
+    "endSeconds": 203.5316666666667
+  },
+  {
+    "sceneId": "scene-07-gaps",
+    "text": "And what the prototype deliberately does not replicate: enterprise single sign-on, the",
+    "startFrame": 6148,
+    "endFrame": 6310,
+    "startSeconds": 204.93166666666667,
+    "endSeconds": 210.33333333333334
+  },
+  {
+    "sceneId": "scene-07-gaps",
+    "text": "connector ecosystem, a managed data platform, centralized data loss prevention, citizen",
+    "startFrame": 6311,
+    "endFrame": 6524,
+    "startSeconds": 210.36266666666668,
+    "endSeconds": 217.46666666666667
+  },
+  {
+    "sceneId": "scene-07-gaps",
+    "text": "development, and production operations, meaning monitoring, incident response, and disaster recovery.",
+    "startFrame": 6525,
+    "endFrame": 6753,
+    "startSeconds": 217.49366666666668,
+    "endSeconds": 225.12666666666667
+  },
+  {
+    "sceneId": "scene-07-gaps",
+    "text": "On the custom path, your team owns security, compliance, and support.",
+    "startFrame": 6779,
+    "endFrame": 6905,
+    "startSeconds": 225.97366666666667,
+    "endSeconds": 230.16666666666669
+  },
+  {
+    "sceneId": "scene-07-gaps",
+    "text": "Those are real, recurring costs, and they gate any migration decision, especially for",
+    "startFrame": 6920,
+    "endFrame": 7071,
+    "startSeconds": 230.66466666666668,
+    "endSeconds": 235.7
+  },
+  {
+    "sceneId": "scene-07-gaps",
+    "text": "regulated workflows like KYC.",
+    "startFrame": 7072,
+    "endFrame": 7135,
+    "startSeconds": 235.71666666666667,
+    "endSeconds": 237.84866666666667
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "So route by app, not by ideology.",
+    "startFrame": 7182,
+    "endFrame": 7266,
+    "startSeconds": 239.40666666666667,
+    "endSeconds": 242.2
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "Keep the existing three apps where they are; there's no migration case yet.",
+    "startFrame": 7267,
+    "endFrame": 7403,
+    "startSeconds": 242.23866666666666,
+    "endSeconds": 246.78666666666666
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "Build custom only when engineering will own the tool in production, it needs code-level",
+    "startFrame": 7420,
+    "endFrame": 7572,
+    "startSeconds": 247.33966666666666,
+    "endSeconds": 252.4
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "control or deep internal integration, and the workflow is well-defined enough to test.",
+    "startFrame": 7573,
+    "endFrame": 7738,
+    "startSeconds": 252.43666666666667,
+    "endSeconds": 257.93333333333334
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "Everything else stays on Power Apps.",
+    "startFrame": 7739,
+    "endFrame": 7811,
+    "startSeconds": 257.97366666666665,
+    "endSeconds": 260.38666666666666
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "Concretely: confirm the real seat mix behind the spend, take one pilot, feature-flag",
+    "startFrame": 7834,
+    "endFrame": 7996,
+    "startSeconds": 261.13666666666666,
+    "endSeconds": 266.53333333333336
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "administration, to a true production bar with real identity and monitoring, and measure it.",
+    "startFrame": 7997,
+    "endFrame": 8176,
+    "startSeconds": 266.57966666666664,
+    "endSeconds": 272.5466666666667
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "Don't replace the platform.",
+    "startFrame": 8195,
+    "endFrame": 8242,
+    "startSeconds": 273.1546666666667,
+    "endSeconds": 274.73333333333335
+  },
+  {
+    "sceneId": "scene-08-recommendation",
+    "text": "Earn the right to shrink it, with evidence.",
+    "startFrame": 8243,
+    "endFrame": 8320,
+    "startSeconds": 274.7506666666667,
+    "endSeconds": 277.34666666666664
+  }
+]

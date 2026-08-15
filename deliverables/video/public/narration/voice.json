@@ -1,0 +1,7 @@
+{
+  "voiceId": "BIvP0GN1cAtSRTxNHnWS",
+  "voiceName": "Ellen",
+  "modelId": "eleven_v3",
+  "outputFormat": "mp3_44100_128",
+  "seed": 42
+}

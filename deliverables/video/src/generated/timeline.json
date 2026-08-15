@@ -1,0 +1,71 @@
+{
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "scene-01-decision",
+      "title": "Recommendation first",
+      "from": 0,
+      "durationInFrames": 665,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 20.64
+    },
+    {
+      "id": "scene-02-powerapps",
+      "title": "What Power Apps actually buys",
+      "from": 665,
+      "durationInFrames": 1188,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 38.08
+    },
+    {
+      "id": "scene-03-prototype",
+      "title": "What was built and why",
+      "from": 1853,
+      "durationInFrames": 1058,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 33.76
+    },
+    {
+      "id": "scene-04-kyc",
+      "title": "KYC demonstration",
+      "from": 2911,
+      "durationInFrames": 1265,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 40.64
+    },
+    {
+      "id": "scene-05-reuse",
+      "title": "Reuse and the permission boundary",
+      "from": 4176,
+      "durationInFrames": 881,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 27.84
+    },
+    {
+      "id": "scene-06-devin",
+      "title": "What Devin accelerates",
+      "from": 5057,
+      "durationInFrames": 1068,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 34.08
+    },
+    {
+      "id": "scene-07-gaps",
+      "title": "What remains to be owned",
+      "from": 6125,
+      "durationInFrames": 1029,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 32.8
+    },
+    {
+      "id": "scene-08-recommendation",
+      "title": "Recommendation and next steps",
+      "from": 7154,
+      "durationInFrames": 1311,
+      "audioStartInScene": 21,
+      "audioDurationSeconds": 38
+    }
+  ],
+  "totalFrames": 8465,
+  "totalSeconds": 282.17
+}

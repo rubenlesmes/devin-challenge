@@ -1,0 +1,31 @@
+{
+  "name": "fintech-console-executive-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible Remotion pipeline for the executive build-vs-buy video (isolated from the application dependency graph).",
+  "scripts": {
+    "capture": "node scripts/capture-app.mjs",
+    "narration": "node scripts/generate-narration.mjs",
+    "captions": "node scripts/build-captions.mjs",
+    "video:studio": "remotion studio src/index.ts",
+    "video:draft": "remotion render src/index.ts ExecutiveReadout output/draft.mp4 --codec h264 --crf 28 --concurrency 4",
+    "video:render": "remotion render src/index.ts ExecutiveReadout output/fintech-internal-tools-vp-engineering.mp4 --codec h264 --crf 17 --color-space bt709 --concurrency 4",
+    "video:validate": "node scripts/validate-media.mjs",
+    "video:contact-sheet": "node scripts/create-contact-sheet.mjs",
+    "video:build": "npm run capture && npm run narration && npm run captions && npm run video:render && npm run video:validate"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.442",
+    "@remotion/cli": "^4.0.442",
+    "@remotion/renderer": "^4.0.442",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.442"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "playwright": "^1.49.0",
+    "typescript": "^5.6.0"
+  }
+}

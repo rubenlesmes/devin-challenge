@@ -1,0 +1,227 @@
+1
+00:00:00,768 --> 00:00:07,267
+You're paying roughly two hundred and fifty thousand dollars a year for an internal-tools platform.
+
+2
+00:00:07,287 --> 00:00:09,833
+Our recommendation: don't replace it.
+
+3
+00:00:09,859 --> 00:00:14,600
+Keep Power Apps where it earns its keep, and pilot Devin-assisted custom development
+
+4
+00:00:14,627 --> 00:00:16,647
+on the next engineering-owned tool.
+
+5
+00:00:17,177 --> 00:00:21,527
+A working prototype makes the case, and shows exactly where the boundaries are.
+
+6
+00:00:23,264 --> 00:00:26,900
+First, be clear about what that license actually buys.
+
+7
+00:00:26,947 --> 00:00:29,607
+Screens are the visible part.
+
+8
+00:00:30,365 --> 00:00:36,655
+The real value is the platform underneath: Microsoft Entra identity and single sign-on.
+
+9
+00:00:36,695 --> 00:00:41,633
+Dataverse, a managed data layer with row and column level security.
+
+10
+00:00:41,675 --> 00:00:44,500
+More than a thousand governed connectors.
+
+11
+00:00:44,539 --> 00:00:46,500
+Data loss prevention policies.
+
+12
+00:00:46,535 --> 00:00:50,895
+And managed lifecycle controls, all maintained by Microsoft.
+
+13
+00:00:51,909 --> 00:00:54,833
+Custom code inherits none of that for free.
+
+14
+00:00:54,860 --> 00:01:01,140
+Any honest build-versus-buy comparison starts there, not with how fast you can render a table.
+
+15
+00:01:02,606 --> 00:01:07,000
+To test the build side, Devin built a working operations console.
+
+16
+00:01:07,017 --> 00:01:13,287
+One deep KYC review workflow, plus refunds and feature flags as thinner reuse tests.
+
+17
+00:01:13,937 --> 00:01:19,700
+Underneath: one server-side permission map, declarative state machines, and an append-only
+
+18
+00:01:19,720 --> 00:01:24,727
+audit event written in the same database transaction as every business change.
+
+19
+00:01:25,016 --> 00:01:28,729
+A record cannot change without an audit trail, by construction.
+
+20
+00:01:29,551 --> 00:01:33,131
+All data is synthetic, and identity is deliberately simulated.
+
+21
+00:01:33,131 --> 00:01:36,411
+The point is the pattern, not a production system.
+
+22
+00:01:37,861 --> 00:01:39,593
+Here's the real application.
+
+23
+00:01:39,733 --> 00:01:45,967
+A reviewer works the KYC queue, opens a case, assigns it to themselves, and approves
+
+24
+00:01:46,000 --> 00:01:48,073
+it with a mandatory decision note.
+
+25
+00:01:48,758 --> 00:01:55,100
+The case moves through a controlled state machine, from pending to in review to approved,
+
+26
+00:01:55,133 --> 00:01:59,753
+and once a decision is final, the server refuses any further transition.
+
+27
+00:01:59,746 --> 00:02:06,473
+Every action lands in the case's audit timeline: who, what, before and after.
+
+28
+00:02:07,288 --> 00:02:13,533
+Ten automated tests pin these boundaries down, covering permitted actions, denied actions,
+
+29
+00:02:13,553 --> 00:02:18,553
+invalid transitions, and audit atomicity, against the real service code.
+
+30
+00:02:19,968 --> 00:02:22,960
+The same spine repeats across modules.
+
+31
+00:02:22,960 --> 00:02:27,920
+Refunds reuse the same queue, dialog, and audit components.
+
+32
+00:02:28,287 --> 00:02:33,733
+Feature flags show the permission boundary: as a reviewer, the toggle is refused, enforced
+
+33
+00:02:33,767 --> 00:02:36,720
+on the server, not just hidden in the interface.
+
+34
+00:02:37,351 --> 00:02:42,300
+Switch to an admin, and enabling a production flag requires a recorded change reason.
+
+35
+00:02:42,340 --> 00:02:47,920
+And every action, across every module, shows up in one central audit log.
+
+36
+00:02:49,467 --> 00:02:53,047
+Devin's role is the economics of the second through the tenth app.
+
+37
+00:02:53,067 --> 00:02:59,500
+The repository encodes the conventions: a machine-readable rulebook and a module playbook,
+
+38
+00:02:59,534 --> 00:03:03,087
+so the next workflow follows the same golden path.
+
+39
+00:03:03,626 --> 00:03:09,967
+Schema, service, permissions, transitions, audit, tests, pull request.
+
+40
+00:03:10,010 --> 00:03:12,732
+Reviewed and merged by your engineers.
+
+41
+00:03:13,903 --> 00:03:16,892
+Devin is an accelerator inside your delivery process.
+
+42
+00:03:16,899 --> 00:03:23,532
+It is not the runtime, not the identity provider, and not the accountable owner of what ships.
+
+43
+00:03:24,932 --> 00:03:30,333
+And what the prototype deliberately does not replicate: enterprise single sign-on, the
+
+44
+00:03:30,363 --> 00:03:37,467
+connector ecosystem, a managed data platform, centralized data loss prevention, citizen
+
+45
+00:03:37,494 --> 00:03:45,127
+development, and production operations, meaning monitoring, incident response, and disaster recovery.
+
+46
+00:03:45,974 --> 00:03:50,167
+On the custom path, your team owns security, compliance, and support.
+
+47
+00:03:50,665 --> 00:03:55,700
+Those are real, recurring costs, and they gate any migration decision, especially for
+
+48
+00:03:55,717 --> 00:03:57,849
+regulated workflows like KYC.
+
+49
+00:03:59,407 --> 00:04:02,200
+So route by app, not by ideology.
+
+50
+00:04:02,239 --> 00:04:06,787
+Keep the existing three apps where they are; there's no migration case yet.
+
+51
+00:04:07,340 --> 00:04:12,400
+Build custom only when engineering will own the tool in production, it needs code-level
+
+52
+00:04:12,437 --> 00:04:17,933
+control or deep internal integration, and the workflow is well-defined enough to test.
+
+53
+00:04:17,974 --> 00:04:20,387
+Everything else stays on Power Apps.
+
+54
+00:04:21,137 --> 00:04:26,533
+Concretely: confirm the real seat mix behind the spend, take one pilot, feature-flag
+
+55
+00:04:26,580 --> 00:04:32,547
+administration, to a true production bar with real identity and monitoring, and measure it.
+
+56
+00:04:33,155 --> 00:04:34,733
+Don't replace the platform.
+
+57
+00:04:34,751 --> 00:04:37,347
+Earn the right to shrink it, with evidence.
