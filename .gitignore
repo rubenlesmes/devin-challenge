@@ -46,3 +46,7 @@ prisma/*.db-journal
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# deliverables: media pipeline (Claude Code finalization session)
+deliverables/video/node_modules/
+deliverables/video/output/

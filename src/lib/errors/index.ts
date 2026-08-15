@@ -44,5 +44,8 @@ export function toActionResult(error: unknown): ActionResult {
   if (error instanceof AppError) {
     return { ok: false, error: error.message };
   }
+  // Log unexpected errors server-side for operators; the browser still only
+  // receives a generic message (no stack traces or internals leak to the UI).
+  console.error("Unexpected action error:", error);
   return { ok: false, error: "An unexpected error occurred. Please try again." };
 }
