@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Fintech Operations Console — Key Decisions</title>
+<style>
+  /* US Letter, print-first, exactly one page. */
+  @page { size: Letter; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 8.5in; height: 11in; }
+  body {
+    font-family: "Helvetica Neue", -apple-system, "Segoe UI", Arial, sans-serif;
+    color: #111827;
+    padding: 0.46in 0.55in 0.4in;
+    font-size: 9.6pt;
+    line-height: 1.42;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  header { border-bottom: 3px solid #1D4ED8; padding-bottom: 9px; margin-bottom: 12px; }
+  h1 { font-size: 18pt; letter-spacing: -0.2px; color: #0F172A; }
+  .meta { font-size: 9.3pt; color: #374151; margin-top: 5px; }
+  .meta b { color: #111827; }
+  h2 {
+    font-size: 9.6pt; text-transform: uppercase; letter-spacing: 1.2px;
+    color: #1D4ED8; margin: 13px 0 7px;
+  }
+  /* Architecture strip */
+  .arch { display: flex; align-items: stretch; gap: 5px; }
+  .arch .node {
+    background: #F1F5F9; border: 1px solid #CBD5E1; border-radius: 5px;
+    padding: 7px 7px; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center;
+  }
+  .arch .node b { font-size: 9.2pt; display: block; color: #0F172A; }
+  .arch .node span { font-size: 7.9pt; color: #475569; }
+  .arch .node.hot { background: #DBEAFE; border-color: #93C5FD; }
+  .arch .node.tx { background: #DCFCE7; border-color: #86EFAC; }
+  .arch .arrow { align-self: center; color: #64748B; font-size: 10pt; }
+  .archnote { font-size: 8.4pt; color: #475569; margin-top: 6px; }
+  /* Decisions grid */
+  .decisions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+  .d {
+    border-left: 3.5px solid #1D4ED8; padding: 4px 0 4px 9px;
+  }
+  .d h3 { font-size: 9.8pt; color: #0F172A; margin-bottom: 3px; }
+  .d p { font-size: 8.9pt; color: #374151; }
+  .d p b { color: #111827; }
+  .d.full { grid-column: 1 / -1; }
+  /* Bottom line */
+  .bottom {
+    margin-top: auto; background: #0F172A; color: #E2E8F0; border-radius: 8px;
+    padding: 11px 14px; font-size: 9.2pt; line-height: 1.45;
+  }
+  .bottom b { color: #FFFFFF; }
+  .bottom .accent { color: #93C5FD; }
+  footer { font-size: 7.8pt; color: #6B7280; margin-top: 7px; display: flex; justify-content: space-between; gap: 20px; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Fintech Operations Console — Key Decisions</h1>
+    <div class="meta">
+      <b>Objective:</b> test whether Devin-assisted custom development yields a reusable, engineering-owned internal-tools golden path worth piloting against a ~$250K/yr Power Apps footprint.
+      <b>Scope:</b> one deep workflow (KYC) proves depth; two thin modules (refunds, feature flags) price repetition — the economics of apps 2–10 — on synthetic data with deliberately simulated identity.
+    </div>
+  </header>
+
+  <h2>Architecture — as implemented (verified by source audit + 13/13 service-level tests)</h2>
+  <div class="arch">
+    <div class="node"><b>Browser</b><span>persona cookie = allow-listed ID only</span></div>
+    <div class="arrow">→</div>
+    <div class="node"><b>Next.js UI</b><span>App Router · no authz logic</span></div>
+    <div class="arrow">→</div>
+    <div class="node"><b>Server actions</b><span>thin wrappers</span></div>
+    <div class="arrow">→</div>
+    <div class="node hot"><b>Application services</b><span>requirePermission · Zod · assertTransition</span></div>
+    <div class="arrow">→</div>
+    <div class="node tx"><b>One transaction</b><span>business write + audit event</span></div>
+    <div class="arrow">→</div>
+    <div class="node"><b>Prisma → SQLite</b><span>synthetic seed</span></div>
+  </div>
+  <div class="archnote">Server resolves user &amp; role from the database — the client never asserts a role. Audit trail: who, what, before/after, reason; append-only at the application layer. Full trace: <i>deliverables/evidence-matrix.md</i>.</div>
+
+  <h2>Key decisions — why · proves · does not prove · production implication</h2>
+  <div class="decisions">
+    <div class="d">
+      <h3>1 · Code-based golden path, not a low-code platform</h3>
+      <p><b>Why:</b> control, testability, repeatability for engineering-owned tools. <b>Proves:</b> a 4th module can look like the 3rd — marginal cost falls with reuse. <b>Doesn't prove:</b> any replacement for connectors, Dataverse, DLP, or citizen development. <b>Implication:</b> custom fits engineering-owned apps; forms-over-data stays on Power Apps.</p>
+    </div>
+    <div class="d">
+      <h3>2 · One deep KYC slice + two thin modules</h3>
+      <p><b>Why:</b> depth shows regulated-workflow fit; thinness isolates the reusable spine. <b>Proves:</b> shared components and service patterns carry across modules. <b>Doesn't prove:</b> per-app production cost — the pilot must measure it. <b>Implication:</b> the reuse claim is structural, not yet economic.</p>
+    </div>
+    <div class="d">
+      <h3>3 · Central server-side permissions, transitions, validation</h3>
+      <p><b>Why:</b> one reviewable place for "who can do what" and "what may change into what." <b>Proves:</b> denials are testable first-class cases — a reviewer's flag toggle is refused by the server. <b>Doesn't prove:</b> SSO/MFA, record-level authz, segregation of duties. <b>Implication:</b> identity and fine-grained authz are pilot-blocking work.</p>
+    </div>
+    <div class="d">
+      <h3>4 · Audit event in the same transaction as every change</h3>
+      <p><b>Why:</b> "no change without a trail" as a structural guarantee. <b>Proves:</b> fault-injection test — if the audit write fails, the business write rolls back. <b>Doesn't prove:</b> tamper-evident retention; append-only holds at the app layer only. <b>Implication:</b> regulated flows need immutable storage + approved retention first.</p>
+    </div>
+    <div class="d full">
+      <h3>5 · Repository-as-contract for Devin (AGENTS.md · module Skill · PR template) — human review as the merge gate</h3>
+      <p><b>Why:</b> encode the non-negotiable rules so agent output conforms by construction. <b>Proves:</b> with explicit conventions and tests, an agent can extend the path consistently. <b>Doesn't prove:</b> autonomy without oversight, or any build-time figure — the repository does not independently substantiate an end-to-end build-duration claim. <b>Implication:</b> budget for permanent human review and framework ownership (est. 0.5–1 FTE — assumption, to be measured in the pilot).</p>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <b class="accent">Bottom line:</b> <b>build-vs-buy is per-app, not tenant-wide.</b> Custom wins only where engineering owns the tool in production, needs code-level control or deep internal integration, and the workflow is testable; Power Apps wins everywhere else — identity, governed data, connectors, DLP, and ALM come with the license.
+    <b class="accent">Largest unresolved risk:</b> un-built production controls (SSO, record-level authz, source-of-truth integration, tamper-evident audit, monitoring) plus standing platform ownership can consume the ~$250K/yr ceiling.
+    <b class="accent">Next step:</b> confirm the real seat mix behind the spend; take one pilot — feature-flag administration — to a true production bar and through security review; decide app #2 from measured hours, support burden, and lead time.
+  </div>
+
+  <footer>
+    <span>Prototype: Devin-built · Finalization &amp; decision brief: Claude Code session, 2026-08-15 · Synthetic data only — not production-ready</span>
+    <span>Evidence: deliverables/evidence-matrix.md · sources.md</span>
+  </footer>
+</body>
+</html>
