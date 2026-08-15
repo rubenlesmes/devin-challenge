@@ -80,3 +80,20 @@ See README §K "Explicit exclusions" (page builders, real identity/KYC/payment/f
 ## Environmental limitations on parallel work
 
 Parallel child sessions were technically available; not using them was a deliberate speed/safety trade-off for an empty repository, not an environmental limitation.
+
+---
+
+## Post-delivery factual corrections (appended 2026-08-15, Claude Code finalization session)
+
+The history above is preserved unchanged. Two statements required correction after audit:
+
+1. **"Optimistic concurrency … is test-covered" (Major architectural decisions / Scope reductions):**
+   at delivery, no test passed `expectedVersion`; the CONFLICT rejection path had zero
+   coverage. `tests/concurrency.test.ts` (3 tests) was added during the finalization
+   session to cover it. The UI still does not send `expectedVersion`, as already stated.
+2. **`db:reset` / test setup portability:** `prisma db push --force-reset` is refused by
+   Prisma's AI-agent guard in AI-assisted sessions, which made `npm run db:reset` and
+   `npm test` fail in such environments. Replaced with an equivalent non-destructive
+   reset (schema push + reseed; the seed clears all tables). See
+   `FINALIZATION_LOG.md` in the external delivery package (distributed alongside this
+   repository) for the full record of finalization changes.

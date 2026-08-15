@@ -46,3 +46,8 @@ prisma/*.db-journal
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# The evaluation delivery package (video pipeline, one-pager, evidence docs) is
+# kept OUTSIDE this repository by design. Guard against accidental commits if a
+# copy is ever placed inside a checkout.
+/deliverables/
